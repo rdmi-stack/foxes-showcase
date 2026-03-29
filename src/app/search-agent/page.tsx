@@ -1,3 +1,5 @@
+import { SearchDemo } from "@/components/search-demo";
+
 const features = [
   { title: "Multi-Model AI", desc: "Switch between Claude, GPT, and Gemini — use the best model for each query type. No vendor lock-in.", gradient: "from-emerald-500 to-teal-500", icon: "M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" },
   { title: "Semantic Vector Search", desc: "Pinecone-powered similarity search that understands meaning, not just keywords. Find relevant results even with different phrasing.", gradient: "from-cyan-500 to-blue-500", icon: "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" },
@@ -61,28 +63,8 @@ export default function SearchAgentPage() {
         </div>
       </section>
 
-      {/* Search demo mockup */}
-      <section className="py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="rounded-3xl bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-900 p-8 sm:p-12 shadow-2xl">
-            <div className="max-w-2xl mx-auto">
-              <div className="flex items-center gap-3 rounded-2xl bg-white/10 border border-white/10 px-5 py-4 backdrop-blur">
-                <svg className="w-5 h-5 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
-                <span className="text-white/60 text-sm">family-friendly activities with kids near the beach...</span>
-              </div>
-              <div className="mt-6 space-y-3">
-                {["Glass Bottom Boat Tour — Hurghada Marina, from $35/person", "Dolphin House Snorkeling — Kid-friendly, includes lunch", "Mini Safari & Quad Biking — Ages 6+, desert adventure"].map((r, i) => (
-                  <div key={i} className="flex items-start gap-3 rounded-xl bg-white/5 border border-white/5 px-5 py-3">
-                    <span className="text-emerald-400 text-xs font-bold mt-0.5">{(0.97 - i * 0.03).toFixed(2)}</span>
-                    <p className="text-white/70 text-sm">{r}</p>
-                  </div>
-                ))}
-              </div>
-              <p className="mt-4 text-xs text-white/30 text-center">Showing 3 of 47 results — semantic similarity scores</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Live search demo */}
+      <SearchDemo />
 
       {/* Features */}
       <section id="features" className="py-24 bg-slate-50">

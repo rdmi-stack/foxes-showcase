@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 const PROPERTY_ID = "69bba14234aa22d0127f7acb";
-const API_URL = typeof window !== "undefined" && window.location.hostname === "localhost" ? "http://localhost:3000" : "https://foxes-hotel.netlify.app";
+const API_URL = "https://foxes-hotel.netlify.app";
 const ACCENT = "#0E7490";
 
 function useWidget(attrs: Record<string, string>) {
