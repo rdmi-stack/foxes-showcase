@@ -2,11 +2,7 @@
 
 import { useEffect } from "react";
 
-// Use deployed URL when available, localhost for dev
-const SEARCH_API_URL =
-  typeof window !== "undefined" && window.location.hostname !== "localhost"
-    ? "https://foxes-ai-search.netlify.app"
-    : "http://localhost:3000";
+const SEARCH_API_URL = "https://ai-search-agent.netlify.app";
 
 export function SearchWidgetEmbed() {
   useEffect(() => {
