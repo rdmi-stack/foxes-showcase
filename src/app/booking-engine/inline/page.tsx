@@ -1,24 +1,10 @@
 "use client";
-import { useEffect } from "react";
+import Script from "next/script";
 const API = "https://foxesapp.netlify.app";
 const OID = "69b700e25e8af4de376859b9";
 const PID = "69b700e25e8af4de376859c4";
 
 export default function InlineDemo() {
-  useEffect(() => {
-    const id = "foxes-inline-widget";
-    if (document.getElementById(id)) return;
-    const s = document.createElement("script");
-    s.id = id; s.src = `${API}/widget/foxes-inline-widget.js`;
-    s.setAttribute("data-org-id", OID);
-    s.setAttribute("data-product-id", PID);
-    s.setAttribute("data-api-url", API);
-    s.setAttribute("data-container", "foxes-inline-booking");
-    s.setAttribute("data-primary-color", "#6366f1");
-    document.body.appendChild(s);
-    return () => { try { document.body.removeChild(s); } catch {} };
-  }, []);
-
   return (
     <main>
       <section className="relative min-h-[50vh] flex items-center justify-center pt-16 overflow-hidden">
@@ -41,6 +27,7 @@ export default function InlineDemo() {
 <script
   src="${API}/widget/foxes-inline-widget.js"
   data-org-id="${OID}"
+  data-product-id="${PID}"
   data-api-url="${API}"
   data-container="foxes-inline-booking"
 ></script>`}</pre>
@@ -48,6 +35,16 @@ export default function InlineDemo() {
           </div>
         </div>
       </section>
+
+      <Script
+        src={`${API}/widget/foxes-inline-widget.js`}
+        data-org-id={OID}
+        data-product-id={PID}
+        data-api-url={API}
+        data-container="foxes-inline-booking"
+        data-primary-color="#6366f1"
+        strategy="afterInteractive"
+      />
     </main>
   );
 }

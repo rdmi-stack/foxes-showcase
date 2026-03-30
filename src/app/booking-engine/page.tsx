@@ -1,18 +1,8 @@
 "use client";
-import { useEffect } from "react";
+import Script from "next/script";
 
 const API_URL = "https://foxesapp.netlify.app";
 const ORG_ID = "69b700e25e8af4de376859b9";
-
-function useWidget(attrs: Record<string, string>) {
-  useEffect(() => {
-    const s = document.createElement("script");
-    s.src = attrs.src;
-    Object.entries(attrs).forEach(([k, v]) => { if (k !== "src") s.setAttribute(k, v); });
-    document.body.appendChild(s);
-    return () => { try { document.body.removeChild(s); } catch {} };
-  }, []);
-}
 
 const features = [
   { title: "Multi-Channel Distribution", desc: "Sell through your website, partner sites, OTAs, and reseller networks. One inventory, every channel synced in real-time.", gradient: "from-blue-500 to-indigo-500", icon: "M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" },
@@ -44,15 +34,6 @@ const apiModules = [
 ];
 
 export default function BookingEnginePage() {
-  useWidget({
-    src: `${API_URL}/widget/foxes-booking.js`,
-    "data-org-id": ORG_ID,
-    "data-api-url": API_URL,
-    "data-mode": "sidebar",
-    "data-accent": "#6366f1",
-    "data-button-text": "Book a Tour",
-  });
-
   return (
     <main>
       {/* Hero */}
@@ -256,6 +237,15 @@ export default function BookingEnginePage() {
           </div>
         </div>
       </section>
+
+      <Script
+        src={`${API_URL}/widget/foxes-booking-modal.js`}
+        data-org-id={ORG_ID}
+        data-api-url={API_URL}
+        data-primary-color="#6366f1"
+        data-button-text="Book a Tour"
+        strategy="afterInteractive"
+      />
     </main>
   );
 }
