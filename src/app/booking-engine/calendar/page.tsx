@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 const API = "https://foxesapp.netlify.app";
 const OID = "69b700e25e8af4de376859b9";
+const PID = "69b700e25e8af4de376859c0";
 
 export default function CalendarDemo() {
   useEffect(() => {
@@ -10,9 +11,10 @@ export default function CalendarDemo() {
     const s = document.createElement("script");
     s.id = id; s.src = `${API}/widget/foxes-calendar-embed.js`;
     s.setAttribute("data-org-id", OID);
+    s.setAttribute("data-product-id", PID);
     s.setAttribute("data-api-url", API);
     s.setAttribute("data-container", "foxes-calendar-embed");
-    s.setAttribute("data-accent", "#0891b2");
+    s.setAttribute("data-primary-color", "#0891b2");
     document.body.appendChild(s);
     return () => { try { document.body.removeChild(s); } catch {} };
   }, []);

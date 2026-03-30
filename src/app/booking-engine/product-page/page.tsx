@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 const API = "https://foxesapp.netlify.app";
 const OID = "69b700e25e8af4de376859b9";
+const PRODUCT_ID = "69b700e25e8af4de376859c3";
 
 export default function ProductPageDemo() {
   useEffect(() => {
@@ -10,9 +11,10 @@ export default function ProductPageDemo() {
     const s = document.createElement("script");
     s.id = id; s.src = `${API}/widget/foxes-product-page.js`;
     s.setAttribute("data-org-id", OID);
+    s.setAttribute("data-product-id", PRODUCT_ID);
     s.setAttribute("data-api-url", API);
     s.setAttribute("data-container", "foxes-product-page");
-    s.setAttribute("data-accent", "#f59e0b");
+    s.setAttribute("data-primary-color", "#f59e0b");
     document.body.appendChild(s);
     return () => { try { document.body.removeChild(s); } catch {} };
   }, []);

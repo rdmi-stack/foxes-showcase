@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 const API = "https://foxesapp.netlify.app";
 const OID = "69b700e25e8af4de376859b9";
+const PID = "69b700e25e8af4de376859c4";
 
 export default function InlineDemo() {
   useEffect(() => {
@@ -10,6 +11,7 @@ export default function InlineDemo() {
     const s = document.createElement("script");
     s.id = id; s.src = `${API}/widget/foxes-inline-widget.js`;
     s.setAttribute("data-org-id", OID);
+    s.setAttribute("data-product-id", PID);
     s.setAttribute("data-api-url", API);
     s.setAttribute("data-container", "foxes-inline-booking");
     s.setAttribute("data-primary-color", "#6366f1");
