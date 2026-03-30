@@ -1,8 +1,8 @@
 "use client";
 import { useEffect } from "react";
 
-const API_URL = "https://foxes-hotel.netlify.app";
-const PROPERTY_ID = "69bba14234aa22d0127f7acb";
+const API_URL = "https://foxesapp.netlify.app";
+const ORG_ID = "697f988b5a33570cdc5f2e9c";
 
 function useWidget(attrs: Record<string, string>) {
   useEffect(() => {
@@ -46,7 +46,7 @@ const apiModules = [
 export default function BookingEnginePage() {
   useWidget({
     src: `${API_URL}/widget/foxes-booking.js`,
-    "data-property-id": PROPERTY_ID,
+    "data-org-id": ORG_ID,
     "data-api-url": API_URL,
     "data-mode": "sidebar",
     "data-accent": "#6366f1",

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
-const API = "https://foxes-hotel.netlify.app";
-const PID = "69bba14234aa22d0127f7acb";
+const API = "https://foxesapp.netlify.app";
+const OID = "697f988b5a33570cdc5f2e9c";
 
 export default function CalendarDemo() {
   useEffect(() => {
@@ -9,7 +9,7 @@ export default function CalendarDemo() {
     if (document.getElementById(id)) return;
     const s = document.createElement("script");
     s.id = id; s.src = `${API}/widget/foxes-calendar-embed.js`;
-    s.setAttribute("data-property-id", PID);
+    s.setAttribute("data-org-id", OID);
     s.setAttribute("data-api-url", API);
     s.setAttribute("data-container", "foxes-calendar-embed");
     s.setAttribute("data-accent", "#0891b2");
@@ -38,7 +38,7 @@ export default function CalendarDemo() {
               <pre className="text-sm text-emerald-400 font-mono whitespace-pre">{`<div id="foxes-calendar-embed"></div>
 <script
   src="${API}/widget/foxes-calendar-embed.js"
-  data-property-id="${PID}"
+  data-org-id="${OID}"
   data-api-url="${API}"
   data-container="foxes-calendar-embed"
 ></script>`}</pre>

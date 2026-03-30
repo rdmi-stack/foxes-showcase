@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
-const API = "https://foxes-hotel.netlify.app";
-const PID = "69bba14234aa22d0127f7acb";
+const API = "https://foxesapp.netlify.app";
+const OID = "697f988b5a33570cdc5f2e9c";
 
 export default function ModalDemo() {
   useEffect(() => {
@@ -9,7 +9,7 @@ export default function ModalDemo() {
     if (document.getElementById(id)) return;
     const s = document.createElement("script");
     s.id = id; s.src = `${API}/widget/foxes-booking-modal.js`;
-    s.setAttribute("data-property-id", PID);
+    s.setAttribute("data-org-id", OID);
     s.setAttribute("data-api-url", API);
     s.setAttribute("data-accent", "#6366f1");
     s.setAttribute("data-button-text", "Book Now");
@@ -34,7 +34,7 @@ export default function ModalDemo() {
           <div className="rounded-xl bg-slate-900 p-6 overflow-x-auto">
             <pre className="text-sm text-emerald-400 font-mono whitespace-pre">{`<script
   src="${API}/widget/foxes-booking-modal.js"
-  data-property-id="${PID}"
+  data-org-id="${OID}"
   data-api-url="${API}"
   data-accent="#6366f1"
   data-button-text="Book Now"
