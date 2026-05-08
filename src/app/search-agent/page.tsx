@@ -95,6 +95,26 @@ export default function SearchAgentPage() {
               </a>
             ))}
           </div>
+
+          {/* CTA → branded storefront showcase */}
+          <div className="mt-16 rounded-3xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-teal-50 p-8 sm:p-10 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-700">Live in production</p>
+            <h3 className="mt-3 text-3xl font-bold text-slate-900">See the widget on real storefronts</h3>
+            <p className="mt-3 text-base text-slate-600 max-w-2xl mx-auto">
+              Five fully-loaded demo sites — boutique tour operator, marketplace, cruise detail page, resort, help center — each embedding a different flavour of the concierge with a single script tag.
+            </p>
+            <div className="mt-6">
+              <a
+                href="/search-agent/showcase"
+                className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800 transition"
+              >
+                Open the showcase
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
