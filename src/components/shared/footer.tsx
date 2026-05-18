@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const productLinks = [
   { name: "Voice Agent", href: "/voice-agent" },
@@ -16,6 +18,9 @@ const companyLinks = [
 ];
 
 export function Footer() {
+  const pathname = usePathname();
+  // Brand demo pages are standalone landing pages — no showcase chrome.
+  if (pathname?.startsWith("/voice-demos")) return null;
   return (
     <footer className="bg-slate-950 py-16 border-t border-white/5">
       <div className="max-w-6xl mx-auto px-6">
