@@ -3,7 +3,16 @@
 import { useEffect } from "react";
 import type { VoiceTenantDemo } from "./data";
 
-const VOICE_APP_URL = process.env.NEXT_PUBLIC_VOICE_APP_URL || "http://localhost:3019";
+// Where the embeddable voice widget is hosted. Explicit env wins; otherwise
+// use the local voice app only when the showcase itself runs on localhost,
+// and the LIVE voice app everywhere else (so a deployed showcase actually
+// has a working widget instead of pointing at localhost:3019).
+const LIVE_VOICE_APP_URL = "https://foxes-ai-voice.netlify.app";
+const VOICE_APP_URL =
+  process.env.NEXT_PUBLIC_VOICE_APP_URL ||
+  (typeof window !== "undefined" && /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)
+    ? "http://localhost:3019"
+    : LIVE_VOICE_APP_URL);
 const FRAME_ID = "foxes-new-voice-widget-frame";
 
 declare global {
