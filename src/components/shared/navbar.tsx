@@ -17,7 +17,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   // Brand demo pages are standalone landing pages — no showcase chrome.
-  if (pathname?.startsWith("/voice-demos")) return null;
+  if (pathname?.startsWith("/voice-demos") || pathname?.startsWith("/search-agent/showcase")) return null;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/5">

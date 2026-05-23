@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import {
-  ArrowRight,
   ArrowUpRight,
   BookOpen,
   CheckCircle2,
@@ -212,9 +211,6 @@ export default function ShowcasePage() {
                 style={{ "--accent": demo.accent, "--glow": demo.glow } as CSSProperties}
               >
                 <span className="card-glow" />
-                <div className="card-preview">
-                  <MiniPreview demo={demo} />
-                </div>
                 <div className="card-copy">
                   <div className="card-head">
                     <div className="card-icon">
@@ -234,17 +230,6 @@ export default function ShowcasePage() {
           })}
         </div>
       </section>
-
-      <footer className="hub-foot">
-        <div>
-          <strong>Testing flow:</strong> open a storefront, ask a travel question, verify the widget
-          returns relevant cards, booking context, itinerary guidance, or policy answers.
-        </div>
-        <Link href="/search-agent" className="footer-link">
-          Product overview
-          <ArrowRight size={15} strokeWidth={2.5} />
-        </Link>
-      </footer>
 
       <style jsx global>{`
         .hub {
@@ -276,8 +261,7 @@ export default function ShowcasePage() {
 
         .hero,
         .proof-strip,
-        .storefronts,
-        .hub-foot {
+        .storefronts {
           width: min(1180px, calc(100vw - 40px));
           margin: 0 auto;
           position: relative;
@@ -285,8 +269,7 @@ export default function ShowcasePage() {
         }
 
         .primary-action,
-        .secondary-action,
-        .footer-link {
+        .secondary-action {
           display: inline-flex;
           align-items: center;
           gap: 9px;
@@ -356,8 +339,7 @@ export default function ShowcasePage() {
         }
 
         .primary-action,
-        .secondary-action,
-        .footer-link {
+        .secondary-action {
           min-height: 50px;
           border-radius: 16px;
           padding: 0 18px;
@@ -371,8 +353,7 @@ export default function ShowcasePage() {
           box-shadow: 0 22px 55px rgba(255, 255, 255, 0.12);
         }
 
-        .secondary-action,
-        .footer-link {
+        .secondary-action {
           color: #e7eaf2;
           border: 1px solid rgba(255, 255, 255, 0.12);
           background: rgba(255, 255, 255, 0.045);
@@ -646,14 +627,14 @@ export default function ShowcasePage() {
 
         .card {
           position: relative;
-          display: grid;
-          grid-template-columns: minmax(0, 0.88fr) minmax(0, 1fr);
-          gap: 22px;
-          min-height: 390px;
-          padding: 18px;
+          display: flex;
+          min-height: 292px;
+          padding: 28px;
           border-radius: 26px;
           border: 1px solid rgba(255, 255, 255, 0.08);
-          background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02));
+          background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.025)),
+            radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--accent), transparent 82%), transparent 42%);
           color: inherit;
           text-decoration: none;
           overflow: hidden;
@@ -663,7 +644,7 @@ export default function ShowcasePage() {
 
         .card.wide {
           grid-column: span 2;
-          grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+          min-height: 260px;
         }
 
         .card:hover {
@@ -683,32 +664,13 @@ export default function ShowcasePage() {
           z-index: -1;
         }
 
-        .card-preview {
-          align-self: center;
-        }
-
-        .card-preview .mini-preview {
-          border-radius: 20px;
-        }
-
-        .card-preview .preview-hero {
-          height: 120px;
-        }
-
-        .card-preview .preview-chat {
-          padding: 14px;
-        }
-
-        .card-preview .floating-note {
-          display: none;
-        }
-
         .card-copy {
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: space-between;
           min-width: 0;
-          padding: 10px 6px;
+          width: 100%;
+          padding: 0;
         }
 
         .card-head {
@@ -758,7 +720,7 @@ export default function ShowcasePage() {
         }
 
         .card-foot {
-          margin-top: 28px;
+          margin-top: 34px;
           padding-top: 18px;
           border-top: 1px solid rgba(255, 255, 255, 0.06);
           display: flex;
@@ -771,26 +733,6 @@ export default function ShowcasePage() {
 
         .card:hover .card-foot {
           color: #c4b5fd;
-        }
-
-        .hub-foot {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 18px;
-          margin-top: 56px;
-          color: #8d96a6;
-          font-size: 13.5px;
-          line-height: 1.6;
-        }
-
-        .hub-foot strong {
-          color: #e7eaf2;
-        }
-
-        .footer-link {
-          flex-shrink: 0;
-          min-height: 44px;
         }
 
         @media (max-width: 1060px) {
@@ -820,8 +762,7 @@ export default function ShowcasePage() {
 
           .hero,
           .proof-strip,
-          .storefronts,
-          .hub-foot {
+          .storefronts {
             width: min(100% - 28px, 1180px);
           }
 
@@ -863,31 +804,19 @@ export default function ShowcasePage() {
           }
 
           .card {
-            padding: 14px;
+            padding: 20px;
             border-radius: 22px;
-          }
-
-          .card-preview .preview-hero {
-            height: 118px;
+            min-height: 250px;
           }
 
           .card-copy {
-            padding: 8px 2px 12px;
+            padding: 0;
           }
 
           .card-tag {
             font-size: 10px;
           }
 
-          .hub-foot {
-            align-items: flex-start;
-            flex-direction: column;
-          }
-
-          .footer-link {
-            width: 100%;
-            justify-content: center;
-          }
         }
       `}</style>
     </main>

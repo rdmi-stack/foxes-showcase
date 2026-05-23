@@ -20,7 +20,7 @@ const companyLinks = [
 export function Footer() {
   const pathname = usePathname();
   // Brand demo pages are standalone landing pages — no showcase chrome.
-  if (pathname?.startsWith("/voice-demos")) return null;
+  if (pathname?.startsWith("/voice-demos") || pathname?.startsWith("/search-agent/showcase")) return null;
   return (
     <footer className="bg-slate-950 py-16 border-t border-white/5">
       <div className="max-w-6xl mx-auto px-6">
