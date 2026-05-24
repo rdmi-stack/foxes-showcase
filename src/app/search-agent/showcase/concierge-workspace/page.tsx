@@ -187,8 +187,13 @@ export default function ConciergeWorkspaceShowcase() {
                   <span><i /> Online · live catalog search</span>
                 </div>
               </div>
-              <button type="button" onClick={() => setOpen(false)} aria-label="Close concierge">
-                <X size={22} strokeWidth={2.6} />
+              <button
+                className="drawer-close"
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label="Close concierge"
+              >
+                <X size={19} strokeWidth={2.5} />
               </button>
             </header>
             <iframe src={iframeSrc} title="Foxes AI concierge workspace" />
@@ -588,14 +593,31 @@ export default function ConciergeWorkspaceShowcase() {
           box-shadow: 0 0 0 5px rgba(34,197,94,0.12);
         }
 
-        .drawer-bar button {
-          width: 44px;
-          height: 44px;
+        .drawer-close {
+          width: 38px;
+          height: 38px;
+          flex: 0 0 auto;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
           border: 1px solid rgba(15,23,42,0.1);
-          border-radius: 14px;
-          background: #fff;
+          border-radius: 12px;
+          background: rgba(255,255,255,0.82);
           color: #0f172a;
           cursor: pointer;
+          box-shadow: 0 10px 24px -20px rgba(15,23,42,0.65);
+          transition: background 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+        }
+
+        .drawer-close:hover {
+          background: #ffffff;
+          border-color: rgba(15,23,42,0.18);
+          transform: translateY(-1px);
+        }
+
+        .drawer-close:focus-visible {
+          outline: 3px solid rgba(249,115,22,0.24);
+          outline-offset: 2px;
         }
 
         iframe {
@@ -656,6 +678,12 @@ export default function ConciergeWorkspaceShowcase() {
           .drawer-bar {
             height: 68px;
             padding: 10px 12px;
+          }
+
+          .drawer-close {
+            width: 36px;
+            height: 36px;
+            border-radius: 11px;
           }
 
           .drawer-brand strong {
