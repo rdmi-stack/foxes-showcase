@@ -57,7 +57,7 @@ export default function ConciergeWorkspaceShowcase() {
   const iframeSrc = useMemo(() => {
     const params = new URLSearchParams({
       embed: "1",
-      prompt: "Find best-value Egypt tours with images, prices, duration, and booking links",
+      prompt: "Find best-value Egypt tours",
       run: String(runId),
     });
     if (widgetId) params.set("widgetId", widgetId);
